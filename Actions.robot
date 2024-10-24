@@ -16,15 +16,16 @@ Go To Checkout And Place Order
     [Documentation]    Go to checkout and place the order
     Click Element    xpath://img[@alt='Cart']    # Open the cart
     Sleep    2s
-    element text should be  xpath://p[@class='product-name']   ${EXPECTED_ITEM}
-    sleep  3s
-
-    # Verify the item quantity directly in the cart
-    ${item_quantity}=    Get Value    xpath://input[@class='quantity']
-    should be equal as numbers    ${item_quantity}   ${EXPECTED_QUANTITY}
-
     Click Element    xpath://button[text()='PROCEED TO CHECKOUT']    # Proceed to checkout
     Sleep    3s
+
+    Wait Until Page Contains Element    xpath://*[@id="productCartTables"]/tbody/tr/td[1]/img
+    ${cart_item_name}=    get text    xpath://*[@id="productCartTables"]/tbody/tr/td[2]/p
+    ${cart_item_quantity}=   get text    xpath://*[@id="productCartTables"]/tbody/tr/td[3]/p
+    should be equal        ${BROCCOLI_ITEM}  ${cart_item_name}
+    should be equal        ${ITEM_QUANTITY}  ${cart_item_quantity}
+    sleep  2s
+
     Click Element    xpath://button[text()='Place Order']    # Click Place Orde
     sleep  3s
 
