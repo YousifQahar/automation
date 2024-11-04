@@ -20,10 +20,10 @@ Go To Checkout And Place Order
     Sleep    3s
 
     Wait Until Page Contains Element    xpath://*[@id="productCartTables"]/tbody/tr/td[1]/img
-    ${cart_item_name}=    get text    xpath://*[@id="productCartTables"]/tbody/tr/td[2]/p
-    ${cart_item_quantity}=   get text    xpath://*[@id="productCartTables"]/tbody/tr/td[3]/p
-    should be equal        ${BROCCOLI_ITEM}  ${cart_item_name}
-    should be equal        ${ITEM_QUANTITY}  ${cart_item_quantity}
+    ${table_item_name}=    get text    xpath://*[@id="productCartTables"]/tbody/tr/td[2]/p
+    ${table_item_quantity}=   get text    xpath://*[@id="productCartTables"]/tbody/tr/td[3]/p
+    should be equal        $Select_ITEM}   ${table_item_name}
+    should be equal        ${Select_QUANTITY}  ${table_item_quantity}
     sleep  2s
 
     Click Element    xpath://button[text()='Place Order']    # Click Place Orde
