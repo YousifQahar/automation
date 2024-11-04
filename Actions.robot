@@ -2,7 +2,9 @@
 Library    SeleniumLibrary
 Resource  Variable.robot
 
-
+*** Variable ***
+${Select_ITEM}   Broccoli - 
+${Select_QUANTITY}
 *** Keywords ***
 Set Quantity To 5 For Broccoli
     [Documentation]    Use a FOR loop to set the quantity of Broccoli to 5 by clicking the increment button
