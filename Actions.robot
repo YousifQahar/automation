@@ -2,9 +2,7 @@
 Library    SeleniumLibrary
 Resource  Variable.robot
 
-*** Variable ***
-${Select_ITEM}    Brocolli - 1 Kg
-${Select_QUANTITY}   5
+
 *** Keywords ***
 Set Quantity To 5 For Broccoli
     [Documentation]    Use a FOR loop to set the quantity of Broccoli to 5 by clicking the increment button
@@ -24,8 +22,8 @@ Go To Checkout And Place Order
     Wait Until Page Contains Element    xpath://*[@id="productCartTables"]/tbody/tr/td[1]/img
     ${table_item_name}=    get text    xpath://*[@id="productCartTables"]/tbody/tr/td[2]/p
     ${table_item_quantity}=   get text    xpath://*[@id="productCartTables"]/tbody/tr/td[3]/p
-    should be equal        $Select_ITEM}   ${table_item_name}
-    should be equal        ${Select_QUANTITY}  ${table_item_quantity}
+    should be equal        ${BROCCOLI_ITEM}   ${table_item_name}
+    should be equal        ${ITEM_QUANTITY}  ${table_item_quantity}
     sleep  2s
 
     Click Element    xpath://button[text()='Place Order']    # Click Place Orde
